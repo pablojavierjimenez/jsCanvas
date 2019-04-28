@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+
+<head>
+  <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body>
+    <a href="/drag.html">DRAG</a>
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
+
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="image_uploads">Choose images to upload (PNG, JPG, GIF)</label>
+            <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png, .gif" multiple>
+        </div>
+        <div class="preview">
+            <p>No files currently selected for upload</p>
+        </div>
+        <div style="display:none;">
+            <button>Submit</button>
+        </div>
+        <canvas id="myCanvas" width="412" height="412"></canvas>
+        <a id="download" download="image.png">
+            <button id="downloadBtn" type="button">Download</button>
+        </a>
+    </form>
+    <script src="./src/uploadImage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "proyecto-manjatan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel app/index.html",
+    "start": "parcel app/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^3.0.1"
+  }
+}

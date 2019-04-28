@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body>
+    <nav>
+      <a href="/drag.html">DRAG</a>
+      <a id="download" download="image.png">
+        <button id="downloadImage">Download</button>
+      </a>
+      <a href="/uploadImage.html">upload</a>
+    </nav>
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
+    <main id="appBody__container">
+      <section id="originalImageContainer">
+        <img id="originalImage" src="#" alt="" width="100%">
+        <input id="uploadImage" type="file" accept="image/png, image/jpeg" name="uploadImage" placeholder="select image" value="select Image"/>
+      </section>
+      <section id="btnContainer">
+      </section>
+      <section id="canvasContainer">
+        <canvas id="myCanvas" width="350" height="350"></canvas>
+        <div>
+          <button id="greyScale" class="filterButton" data-filter="grayscale(100%)">gris</button>
+          <button id="saturation" class="filterButton" data-filter="saturate(4)">saturation</button>
+          <button id="sepia" class="filterButton" data-filter="sepia(95%)">sepia</button>
+          <button id="hue" class="filterButton" data-filter="hue-rotate(60deg)">hue</button>
+          <button id="invert" class="filterButton" data-filter="invert(1)">invert</button>
+        </div>
+      </section>
+    </main>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
