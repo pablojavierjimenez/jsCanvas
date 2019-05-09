@@ -1,8 +1,8 @@
 <head>
   <style>
     #container {
-    width:100vmin;
-    height:100vmin;
+    width:80vmin;
+    height:80vmin;
   }
 
   #myCanvas {
@@ -19,50 +19,120 @@
 </body>
 <script>
 var data = [
-	{ x: 0, y: 0, c: '#ff0000'},
-  { x: 0, y: 20, c: '#77fff0'},
-  { x: 0, y: 40, c: '#ff0000'},
-  { x: 20, y: 0, c: '#0550ff'},
-  { x: 20, y: 20, c: '#000a34f'},
-  { x: 20, y: 40, c: '#00aaff'},
-  { x: 40, y: 0, c: '#cdff00'},
-  { x: 40, y: 20, c: '#00ff00'},
-  { x: 40, y: 40, c: '#0f0f00'}
+  {
+    row: {
+      id: 1,
+      dots: [
+        { c: '#0000ff' },
+        { c: '#FF3358' },
+        { c: '#BEFF33' },
+        { c: '#FF7433' },
+        { c: '#FFDA33' },
+        { c: '#0000ff' }
+      ]
+    }
+  },
+  {
+    row: {
+      id: 2,
+      dots: [
+        { c: '#000000' },
+        { c: '#EC33FF' },
+        { c: '#FF33AC' },
+        { c: '#FF3346' },
+        { c: '#FF8633' },
+        { c: '#000000' }
+      ]
+    }
+  },
+  {
+    row: {
+      id: 3,
+      dots: [
+        { c: '#ff0000' },
+        { c: '#FCFF33' },
+        { c: '#96FF33' },
+        { c: '#33FF36' },
+        { c: '#33FF9C' },
+        { c: '#ff0000' }
+      ]
+    }
+  },
+  {
+    row: {
+      id: 4,
+      dots: [
+        { c: '#46FF33' },
+        { c: '#33FF86' },
+        { c: '#33FFEC' },
+        { c: '#33ACFF' },
+        { c: '#FF33B8' },
+        { c: '#ffffff' }
+      ]
+    }
+  },
+  {
+    row: {
+      id: 5,
+      dots: [
+        { c: '#46FF33' },
+        { c: '#33FF86' },
+        { c: '#33FFEC' },
+        { c: '#33ACFF' },
+        { c: '#3346FF' },
+        { c: '#8633FF' }
+      ]
+    }
+  },
+  {
+    row: {
+      id: 6,
+      dots: [
+        { c: '#33FFF0' },
+        { c: '#33A8FF' },
+        { c: '#3342FF' },
+        { c: '#8A33FF' },
+        { c: '#F033FF' },
+        { c: '#FF33A8' }
+      ]
+    }
+  }
 ];
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
-var picHeight = canvas.height / 3;
-var picWidth = canvas.width / 3;
+var picHeight = canvas.height / data[0].row.dots.length;
+var picWidth = canvas.width / data[0].row.dots.length;
 var x_position = 0;
 var y_position = 0;
-data.map( (item, i) =>{
-  console.log(i)
+data.map( (item ) =>{
+  item.row.dots.map( ( dot, i ) => {
 
-  if (i >=1 ) { x_position = x_position + picWidth; }
-  if (x_position >= canvas.width ) {
-    x_position= 0;
-    y_position = y_position + picHeight;
-  }
+    if (i >=1 ) { x_position = x_position + picWidth; }
 
-
-	ctx.beginPath();
-	ctx.rect(x_position, y_position, picWidth, picHeight);
-	ctx.fillStyle = item.c;
-	ctx.fill();
-	ctx.closePath();
-
+    if (x_position >= canvas.width ) {
+      x_position= 0;
+      y_position = y_position + picHeight;
+    }
+    ctx.beginPath();
+    ctx.rect(x_position, y_position, picWidth, picHeight);
+    ctx.fillStyle = dot.c;
+    ctx.fill();
+    ctx.closePath();
+    debugger;
+  });
+  console.log('row ', item.row.id, ' done.');
 });
 
-ctx.beginPath();
-ctx.arc(240, 160, 20, 0, Math.PI*2, false);
-ctx.fillStyle = "green";
-ctx.fill();
-ctx.closePath();
+// ctx.beginPath();
+// ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+// ctx.fillStyle = "green";
+// ctx.fill();
+// ctx.closePath();
 
-ctx.beginPath();
-ctx.rect(160, 10, 100, 40);
-ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
-ctx.stroke();
-ctx.closePath();
+// ctx.beginPath();
+// ctx.rect(160, 10, 100, 40);
+// ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+// ctx.stroke();
+// ctx.closePath();
 </script>
