@@ -1,4 +1,4 @@
-# Puntitos locos
+# jsCanvas
 
 
 ## Start project
