@@ -1,0 +1,68 @@
+<head>
+  <style>
+    #container {
+    width:100vmin;
+    height:100vmin;
+  }
+
+  #myCanvas {
+    width:100%;
+    height:100%;
+    background: #eee;
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="myCanvas"></canvas>
+        </div>
+</body>
+<script>
+var data = [
+	{ x: 0, y: 0, c: '#ff0000'},
+  { x: 0, y: 20, c: '#77fff0'},
+  { x: 0, y: 40, c: '#ff0000'},
+  { x: 20, y: 0, c: '#0550ff'},
+  { x: 20, y: 20, c: '#000a34f'},
+  { x: 20, y: 40, c: '#00aaff'},
+  { x: 40, y: 0, c: '#cdff00'},
+  { x: 40, y: 20, c: '#00ff00'},
+  { x: 40, y: 40, c: '#0f0f00'}
+];
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var picHeight = canvas.height / 3;
+var picWidth = canvas.width / 3;
+var x_position = 0;
+var y_position = 0;
+data.map( (item, i) =>{
+  console.log(i)
+
+  if (i >=1 ) { x_position = x_position + picWidth; }
+  if (x_position >= canvas.width ) {
+    x_position= 0;
+    y_position = y_position + picHeight;
+  }
+
+
+	ctx.beginPath();
+	ctx.rect(x_position, y_position, picWidth, picHeight);
+	ctx.fillStyle = item.c;
+	ctx.fill();
+	ctx.closePath();
+
+});
+
+ctx.beginPath();
+ctx.arc(240, 160, 20, 0, Math.PI*2, false);
+ctx.fillStyle = "green";
+ctx.fill();
+ctx.closePath();
+
+ctx.beginPath();
+ctx.rect(160, 10, 100, 40);
+ctx.strokeStyle = "rgba(0, 0, 255, 0.5)";
+ctx.stroke();
+ctx.closePath();
+</script>
